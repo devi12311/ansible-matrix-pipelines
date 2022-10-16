@@ -65,8 +65,6 @@ RUN ./configure_proxy_and_admin_variables.sh $MATRIX_NGINX_PROXY_BASE_DOMAIN_SER
 RUN chmod +x configure_whatsapp_variables.sh
 RUN ./configure_whatsapp_variables.sh $MATRIX_MAUTRIX_WHATSAPP_ENABLED $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_REPO $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_BRANCH
 
-#CMD ["ansible-playbook --inventory inventory/hosts setup.yml --tags=setup-all"]
-#CMD ["ansible-playbook --inventory inventory/hosts setup.yml --tags=start"]
-#CMD ["ansible-playbook", "setup.yml", "--inventory","inventory/hosts","--tags=setup-all"]
-#CMD ["ansible-playbook", "setup.yml", "--inventory","inventory/hosts","--tags=start"]
+RUN ansible-playbook, setup.yml, --inventory,inventory/hosts,--tags=setup-all
+RUN ansible-playbook, setup.yml, --inventory,inventory/hosts,--tags=start
 
