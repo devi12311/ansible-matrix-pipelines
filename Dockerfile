@@ -22,7 +22,7 @@ RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
 
-COPY /github/workspace /
+COPY . /
 
 ARG DOMAIN_NAME
 ARG REMOTE_SERVER_HOST
