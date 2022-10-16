@@ -22,8 +22,6 @@ RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
 
-COPY .. /
-
 ARG DOMAIN_NAME
 ARG REMOTE_SERVER_HOST
 ARG REMOTE_SERVER_USER
