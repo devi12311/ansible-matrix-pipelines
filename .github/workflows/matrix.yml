@@ -8,9 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: isbang/compose-action@v1.3.2
-        with:
-          compose-file: "./docker-compose.yml"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build &amp; run tests
+        run: |
+          docker-compose up --build
         env:
           DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
           REMOTE_SERVER_HOST: ${{ secrets.REMOTE_SERVER_HOST }}
