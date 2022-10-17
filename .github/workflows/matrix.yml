@@ -6,6 +6,7 @@ on:
 jobs:
   Build-matrix:
     runs-on: ubuntu-latest
+    environment: deploy_staging
     env:
       DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
       REMOTE_SERVER_HOST: ${{ secrets.REMOTE_SERVER_HOST }}
@@ -35,4 +36,4 @@ jobs:
 
       - name: Build &amp; run tests
         run: |
-          echo ${{ secrets.DOMAIN_NAME }}
+          docker-compose up --build
