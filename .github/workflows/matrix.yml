@@ -35,4 +35,4 @@ jobs:
 
       - name: Build &amp; run tests
         run: |
-          docker-compose up --build
+          echo ${{ secrets.DOMAIN_NAME }}
