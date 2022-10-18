@@ -12,12 +12,12 @@ echo "$1 ansible_host=$2 ansible_ssh_user=$3 ansible_ssh_pass=$4" >> ./inventory
 printf "DONE!\n"
 
 printf "Creating chatner directory inside host_vars\n"
-mkdir ./inventory/host_vars/matrix.chatner.ch
+mkdir ./inventory/host_vars/matrix.chatner.app
 printf "DONE!\n"
 
 
 printf "Creating vars.yml inside matrix.chatner.ch folder \n"
-touch ./inventory/host_vars/matrix.chatner.ch/vars.yml
+touch ./inventory/host_vars/matrix.chatner.app/vars.yml
 printf "DONE!\n"
 
 

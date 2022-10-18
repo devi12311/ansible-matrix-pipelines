@@ -5,22 +5,22 @@ ARG ANSIBLE_LINT "5.4.0"
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV ANSIBLE_CORE ${ANSIBLE_CORE_VERSION_ARG}
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository ppa:deadsnakes/ppa && \
-    apt-get install -y python3.8 python3.8-dev python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
-
-RUN python3.8 -m pip install --upgrade pip cffi && \
-    pip install ansible && \
-    pip install mitogen==0.2.10 jmespath && \
-    pip install --upgrade pywinrm && \
-    rm -rf /root/.cache/pip
-
-RUN mkdir /ansible && \
-    mkdir -p /etc/ansible && \
-    echo 'localhost' > /etc/ansible/hosts
+#RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+#    apt-get install -y software-properties-common && \
+#    add-apt-repository ppa:deadsnakes/ppa && \
+#    apt-get install -y python3.8 python3.8-dev python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
+#    rm -rf /var/lib/apt/lists/* && \
+#    apt-get clean
+#
+#RUN python3.8 -m pip install --upgrade pip cffi && \
+#    pip install ansible && \
+#    pip install mitogen==0.2.10 jmespath && \
+#    pip install --upgrade pywinrm && \
+#    rm -rf /root/.cache/pip
+#
+#RUN mkdir /ansible && \
+#    mkdir -p /etc/ansible && \
+#    echo 'localhost' > /etc/ansible/hosts
 
 COPY . /
 
@@ -64,6 +64,8 @@ RUN ./configure_proxy_and_admin_variables.sh $MATRIX_NGINX_PROXY_BASE_DOMAIN_SER
 
 RUN chmod +x configure_whatsapp_variables.sh
 RUN ./configure_whatsapp_variables.sh $MATRIX_MAUTRIX_WHATSAPP_ENABLED $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_REPO $MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_BRANCH
+
+RUN cat /inventory/host_vars/matrix.chatner.app/vars.yml
 
 RUN ansible-playbook --inventory inventory/hosts setup.yml --tags=setup-all
 RUN ansible-playbook --inventory inventory/hosts setup.yml --tags=start
