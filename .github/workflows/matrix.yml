@@ -34,6 +34,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build &amp; run tests
+      - name: Build container
         run: |
           docker-compose up --build
