@@ -22,7 +22,7 @@ ENV ANSIBLE_CORE ${ANSIBLE_CORE_VERSION_ARG}
 #    mkdir -p /etc/ansible && \
 #    echo 'localhost' > /etc/ansible/hosts
 
-COPY . /
+COPY .. /
 
 ARG DOMAIN_NAME
 ARG REMOTE_SERVER_HOST
