@@ -14,4 +14,4 @@
 # put us right at the "dangerous" 30-second mark.
 #
 # We can try to measure this gap and adjust our waiting time accordingly, but we currently don't.
-matrix_common_after_systemd_service_start_wait_for_timeout_seconds: 25
+matrix_common_after_systemd_service_start_wait_for_timeout_seconds: 15
