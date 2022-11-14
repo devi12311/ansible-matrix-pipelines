@@ -856,6 +856,7 @@ database:
   # The database engine name
   name: "psycopg2"
   txn_limit: {{ matrix_synapse_database_txn_limit }}
+  allow_unsafe_locale: true
   args:
     user: {{ matrix_synapse_database_user | string|to_json }}
     password: {{ matrix_synapse_database_password | string|to_json }}
@@ -864,7 +865,6 @@ database:
     port: {{ matrix_synapse_database_port }}
     cp_min: 5
     cp_max: 10
-    allow_unsafe_locale: true
 
 
 ## Logging ##
