@@ -30,7 +30,7 @@ jobs:
       MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_REPO: ${{ secrets.MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_REPO }}
       MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_BRANCH: ${{ secrets.MATRIX_MAUTRIX_WHATSAPP_CONTAINER_IMAGE_SELF_BUILD_BRANCH }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
